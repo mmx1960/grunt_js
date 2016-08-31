@@ -7,9 +7,26 @@ module.exports = function(grunt){
 					'build/css/compiled.css':'public/css/**/*.less'
 					}
 				}
+			},
+		concat:{
+			js:{
+				files:{
+					'build/js/bundle.js':'public/js/**/*.js'
+					}
+				}
+			},
+		uglify:{
+			bundle:{
+				files:{
+					'build/js/bundle.min.js':'build/js/bundle.js'
+					}
+				}
 			}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.registerTask('default',['jshint']);
+	grunt.registerTask('js','静态资源压缩打包',['concat:js','uglify:bundle']);
 };
