@@ -28,6 +28,10 @@ module.exports = function(grunt){
 				destImg:'build/img/icons.png',
 				destCSS:'build/css/icons.css'
 			}
+		},
+		clean:{
+			js:'build/js',
+			css:'build/css',
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -35,6 +39,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-spritesmith');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.registerTask('default',['jshint']);
 	grunt.registerTask('js','静态资源压缩打包',['concat:js','uglify:bundle']);
 };
