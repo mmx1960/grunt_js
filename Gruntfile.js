@@ -21,12 +21,20 @@ module.exports = function(grunt){
 					'build/js/bundle.min.js':'build/js/bundle.js'
 					}
 				}
+			},
+		sprite:{
+			icons:{
+				src:'public/img/icons/*.png',
+				destImg:'build/img/icons.png',
+				destCSS:'build/css/icons.css'
 			}
+		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-spritesmith');
 	grunt.registerTask('default',['jshint']);
 	grunt.registerTask('js','静态资源压缩打包',['concat:js','uglify:bundle']);
 };
