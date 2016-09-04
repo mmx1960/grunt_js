@@ -1,6 +1,8 @@
 module.exports = function(grunt){
 	grunt.initConfig({
-		jshint: ['Gruntfile.js'],
+		jshint:{
+			files: 'public/js/**/*.js'
+		},
 		less:{
 			compile:{
 				files:{
@@ -31,7 +33,7 @@ module.exports = function(grunt){
 		},
 		clean:{
 			js:'build/js',
-			css:'build/css',
+			css:'build/css'
 		}
 	});
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -40,6 +42,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-spritesmith');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.registerTask('default',['jshint']);
+	
 	grunt.registerTask('js','静态资源压缩打包',['concat:js','uglify:bundle']);
 };
